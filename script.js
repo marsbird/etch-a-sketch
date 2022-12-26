@@ -11,8 +11,8 @@ for (i = 0; i < 16; i++) {
 // listen for hover on divs
 const divs = document.querySelectorAll(".container > div");
 divs.forEach((div) => {
-    div.addEventListener("mouseover",() => {
-        console.log(div)
+    div.addEventListener("mouseover", () => {
+        div.classList.add("dark")
     });
 });
 

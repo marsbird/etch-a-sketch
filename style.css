@@ -8,3 +8,7 @@
 .container>div {
     border: 0.1rem solid;
 }
+
+.dark {
+    background-color: black;
+}
