@@ -38,11 +38,18 @@ function createGrid() {
         container.appendChild(box);
     };
 
-    // listen for hover on divs
+    // select divs
     const divs = document.querySelectorAll(".container > div");
+
+    // remove existing classes
+    divs.forEach((div) => {
+        div.classList.remove("dark");
+    });
+
+    // listen for hover on divs
     divs.forEach((div) => {
         div.addEventListener("mouseover", () => {
-            div.classList.add("dark")
+            div.classList.add("dark");
         });
     });
 };
