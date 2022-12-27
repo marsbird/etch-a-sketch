@@ -2,7 +2,7 @@
 const container = document.querySelector(".container");
 
 // append divs to container div
-for (i = 0; i < 10000; i++) {
+for (i = 0; i < 100; i++) {
     const box = document.createElement("div");
     container.appendChild(box);
 };
