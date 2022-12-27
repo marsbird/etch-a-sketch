@@ -10,6 +10,7 @@ btn.addEventListener("click", () => {
     let userInput = prompt("How many rows? (max 100)");
     let errorMessage = "Please input a number between 1 and 100"
 
+    // check input and assign to numRows
     if (isNaN(userInput)) {
         alert(errorMessage);
     } else {
@@ -21,19 +22,31 @@ btn.addEventListener("click", () => {
             numRows = number;
         };
     };
+
+    // reorganize grid with new number of rows
+    container.setAttribute("style",`grid-template-columns: repeat(${numRows}, 1fr); grid-template-rows: repeat(${numRows}, 1fr)`);
+
+    // recreate grid
+    createGrid();
 });
 
-// append divs to container div
-for (i = 0; i < 100; i++) {
-    const box = document.createElement("div");
-    container.appendChild(box);
+function createGrid() {
+
+    // append divs to container div
+    for (i = 0; i < numRows**2; i++) {
+        const box = document.createElement("div");
+        container.appendChild(box);
+    };
+
+    // listen for hover on divs
+    const divs = document.querySelectorAll(".container > div");
+    divs.forEach((div) => {
+        div.addEventListener("mouseover", () => {
+            div.classList.add("dark")
+        });
+    });
 };
 
-// listen for hover on divs
-const divs = document.querySelectorAll(".container > div");
-divs.forEach((div) => {
-    div.addEventListener("mouseover", () => {
-        div.classList.add("dark")
-    });
-});
+// run default parameters
+createGrid()
 
